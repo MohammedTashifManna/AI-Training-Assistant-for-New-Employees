@@ -1,0 +1,382 @@
+{
+  "description": "Synthetic new-employee questions labelled with the knowledge source that should answer them. Used by scripts/evaluate_routing.py to score the router.",
+  "routes": {
+    "company": "General company questions -> company overview knowledge base",
+    "role": "Role-specific questions -> role and team documents",
+    "admin": "Administrative questions -> policy / admin documents",
+    "general": "Anything else -> direct LLM response, no retrieval"
+  },
+  "questions": [
+    {
+      "id": "Q01",
+      "question": "What does Manna's Analytics actually do?",
+      "expected_route": "company",
+      "category": "general company",
+      "notes": "Core identity question."
+    },
+    {
+      "id": "Q02",
+      "question": "When was the company founded and by whom?",
+      "expected_route": "company",
+      "category": "general company"
+    },
+    {
+      "id": "Q03",
+      "question": "Where are our offices located?",
+      "expected_route": "company",
+      "category": "general company"
+    },
+    {
+      "id": "Q04",
+      "question": "What are the company values?",
+      "expected_route": "company",
+      "category": "general company"
+    },
+    {
+      "id": "Q05",
+      "question": "Who is the CEO of the company?",
+      "expected_route": "company",
+      "category": "general company"
+    },
+    {
+      "id": "Q06",
+      "question": "What are the three products we sell?",
+      "expected_route": "company",
+      "category": "general company"
+    },
+    {
+      "id": "Q07",
+      "question": "What does ARR stand for and what is ours?",
+      "expected_route": "company",
+      "category": "general company"
+    },
+    {
+      "id": "Q08",
+      "question": "What does AR mean in a calendar invite here?",
+      "expected_route": "company",
+      "category": "general company",
+      "notes": "Glossary disambiguation: Architecture Review, not accounts receivable."
+    },
+    {
+      "id": "Q09",
+      "question": "Which customers can I mention publicly?",
+      "expected_route": "company",
+      "category": "general company"
+    },
+    {
+      "id": "Q10",
+      "question": "What is the difference between a pod and a group?",
+      "expected_route": "company",
+      "category": "general company"
+    },
+    {
+      "id": "Q11",
+      "question": "When does our fiscal year start?",
+      "expected_route": "company",
+      "category": "general company"
+    },
+    {
+      "id": "Q12",
+      "question": "What are the core collaboration hours across offices?",
+      "expected_route": "company",
+      "category": "general company"
+    },
+    {
+      "id": "Q13",
+      "question": "Who are our main competitors?",
+      "expected_route": "company",
+      "category": "general company"
+    },
+    {
+      "id": "Q14",
+      "question": "What happens at Demo Friday?",
+      "expected_route": "company",
+      "category": "general company"
+    },
+
+    {
+      "id": "Q15",
+      "question": "What technology stack does the engineering team use?",
+      "expected_route": "role",
+      "category": "role specific"
+    },
+    {
+      "id": "Q16",
+      "question": "When do new engineers join the on-call rotation?",
+      "expected_route": "role",
+      "category": "role specific"
+    },
+    {
+      "id": "Q17",
+      "question": "What is expected of a Senior Software Engineer at L5?",
+      "expected_route": "role",
+      "category": "role specific"
+    },
+    {
+      "id": "Q18",
+      "question": "What is the difference between an Account Executive and a Solutions Engineer?",
+      "expected_route": "role",
+      "category": "role specific"
+    },
+    {
+      "id": "Q19",
+      "question": "Which teams sit inside the Data and AI function?",
+      "expected_route": "role",
+      "category": "role specific"
+    },
+    {
+      "id": "Q20",
+      "question": "How do I get promoted from L4 to L5?",
+      "expected_route": "role",
+      "category": "role specific"
+    },
+    {
+      "id": "Q21",
+      "question": "What does the career grade ladder look like?",
+      "expected_route": "role",
+      "category": "role specific"
+    },
+    {
+      "id": "Q22",
+      "question": "What should I accomplish in my first 30 days as an engineer?",
+      "expected_route": "role",
+      "category": "role specific"
+    },
+    {
+      "id": "Q23",
+      "question": "Who owns the customer relationship after a contract is signed?",
+      "expected_route": "role",
+      "category": "role specific"
+    },
+    {
+      "id": "Q24",
+      "question": "Can I run a customer demo on my own in my first week?",
+      "expected_route": "role",
+      "category": "role specific"
+    },
+    {
+      "id": "Q25",
+      "question": "What is the difference between my functional manager and my pod lead?",
+      "expected_route": "role",
+      "category": "role specific"
+    },
+    {
+      "id": "Q26",
+      "question": "What does an Analytics Engineer do here?",
+      "expected_route": "role",
+      "category": "role specific"
+    },
+    {
+      "id": "Q27",
+      "question": "How does the performance rating scale work?",
+      "expected_route": "role",
+      "category": "role specific"
+    },
+    {
+      "id": "Q28",
+      "question": "Is moving from engineering management back to an IC role a demotion?",
+      "expected_route": "role",
+      "category": "role specific"
+    },
+    {
+      "id": "Q29",
+      "question": "What are the support severity levels and response times?",
+      "expected_route": "role",
+      "category": "role specific"
+    },
+
+    {
+      "id": "Q30",
+      "question": "How many days of annual leave do I get?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q31",
+      "question": "How do I submit an expense claim and what is the deadline?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q32",
+      "question": "What is the hotel cap per night for a work trip to Mumbai?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q33",
+      "question": "Can I take leave while I am still on probation?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q34",
+      "question": "What is the per diem for meals when travelling in India?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q35",
+      "question": "How much notice do I need to give for a two week holiday?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q36",
+      "question": "When is payday and where do I find my payslip?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q37",
+      "question": "How do I add my parents to the health insurance?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q38",
+      "question": "Am I allowed to paste customer data into ChatGPT?",
+      "expected_route": "admin",
+      "category": "administrative",
+      "notes": "Compliance / approved AI tool usage."
+    },
+    {
+      "id": "Q39",
+      "question": "I think I clicked a phishing link. What do I do?",
+      "expected_route": "admin",
+      "category": "administrative",
+      "notes": "Safety-critical: must surface the 1 hour reporting rule."
+    },
+    {
+      "id": "Q40",
+      "question": "How do I report harassment without going through my manager?",
+      "expected_route": "admin",
+      "category": "administrative",
+      "notes": "Sensitive: must surface Internal Committee and Ethics Line."
+    },
+    {
+      "id": "Q41",
+      "question": "What is my notice period if I resign?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q42",
+      "question": "How much can I claim for setting up my home office?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q43",
+      "question": "How do I get access to GitHub?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q44",
+      "question": "Which Slack channel should I use for payroll questions?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q45",
+      "question": "Do I need to declare a side consulting project?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q46",
+      "question": "What is the learning budget and how do I use it?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q47",
+      "question": "How do I book a meeting room in the Bengaluru office?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q48",
+      "question": "What training do I have to finish before I get production access?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q49",
+      "question": "Can I buy a software subscription myself and expense it?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+    {
+      "id": "Q50",
+      "question": "What is the mileage rate if I drive my own car for work?",
+      "expected_route": "admin",
+      "category": "administrative"
+    },
+
+    {
+      "id": "Q51",
+      "question": "Can you explain what retrieval augmented generation means in simple terms?",
+      "expected_route": "general",
+      "category": "other",
+      "notes": "Generic technical concept, not company specific."
+    },
+    {
+      "id": "Q52",
+      "question": "Any tips for making a good first impression in a new job?",
+      "expected_route": "general",
+      "category": "other"
+    },
+    {
+      "id": "Q53",
+      "question": "What is the difference between a list and a tuple in Python?",
+      "expected_route": "general",
+      "category": "other"
+    },
+    {
+      "id": "Q54",
+      "question": "How do I write a clear status update for my manager?",
+      "expected_route": "general",
+      "category": "other"
+    },
+    {
+      "id": "Q55",
+      "question": "What is the weather like in Bengaluru today?",
+      "expected_route": "general",
+      "category": "other",
+      "notes": "Out of scope entirely; assistant should decline gracefully."
+    },
+    {
+      "id": "Q56",
+      "question": "Can you recommend a good book on data visualisation?",
+      "expected_route": "general",
+      "category": "other"
+    },
+    {
+      "id": "Q57",
+      "question": "How should I prioritise when everything feels urgent?",
+      "expected_route": "general",
+      "category": "other"
+    },
+    {
+      "id": "Q58",
+      "question": "Explain the difference between SQL joins.",
+      "expected_route": "general",
+      "category": "other"
+    },
+    {
+      "id": "Q59",
+      "question": "What are good questions to ask in a one to one with my manager?",
+      "expected_route": "general",
+      "category": "other"
+    },
+    {
+      "id": "Q60",
+      "question": "Hello, who are you and what can you help me with?",
+      "expected_route": "general",
+      "category": "other",
+      "notes": "Meta question about the assistant itself."
+    }
+  ]
+}

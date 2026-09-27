@@ -1,0 +1,499 @@
+{
+  "name": "AI Training Assistant evaluation dataset",
+  "description": "Synthetic new-employee questions for evaluating routing accuracy and answer faithfulness. Reference chunk text is copied verbatim from the Markdown corpus in data/ and is checked against it by tests/test_faithfulness.py::test_reference_chunks_match_corpus, so it cannot drift silently.",
+  "routes": {
+    "company": "General company questions -> company overview knowledge base",
+    "role": "Role-specific questions -> role and team documents",
+    "admin": "Administrative questions -> policy / admin documents",
+    "general": "Anything else -> direct LLM response, no retrieval"
+  },
+  "categories": {
+    "general_company": "company",
+    "role_specific": "role",
+    "administrative": "admin",
+    "direct_llm": "general"
+  },
+  "routing_questions": [
+    {
+      "id": "R01",
+      "question": "What does Manna's Analytics do as a business?",
+      "category": "general_company",
+      "expected_route": "company",
+      "expects_retrieval": true,
+      "reference_chunks": [
+        {
+          "doc_id": "company-overview",
+          "citation": "Manna's Analytics - Company Overview > Who we are",
+          "text": "Manna's Analytics is a B2B software company that helps mid-market and enterprise\ncustomers turn operational data into decisions. Our platform ingests data from\nwarehouses, SaaS tools and event streams, then delivers governed metrics,\nanomaly alerts and embedded dashboards to business teams.\n\nWe were founded in **2017** in Bengaluru by **Ananya Rao** and **Vikram Iyer**\nafter they spent years building internal reporting tools at a logistics company\nand grew tired of every team maintaining its own conflicting version of the\nsame number."
+        }
+      ],
+      "must_contain_facts": [
+        "B2B"
+      ],
+      "must_contain_any": [
+        "operational data",
+        "governed metrics",
+        "anomaly"
+      ],
+      "expected_doc_ids": [
+        "company-overview"
+      ],
+      "notes": "Asks what the company does. The founding year is in the same source chunk but is not part of a correct answer to this question, so it is not required."
+    },
+    {
+      "id": "R02",
+      "question": "Who is the CEO of the company?",
+      "category": "general_company",
+      "expected_route": "company",
+      "expects_retrieval": true,
+      "reference_chunks": [
+        {
+          "doc_id": "company-org-structure",
+          "citation": "Organisation Structure and Leadership > Executive team",
+          "text": "| Name | Title | Function | Based in |\n| --- | --- | --- | --- |\n| Ananya Rao | Co-founder & Chief Executive Officer | Office of the CEO | Bengaluru |\n| Vikram Iyer | Co-founder & Chief Technology Officer | Engineering | Bengaluru |\n| Priya Menon | Chief Product Officer | Product & Design | Bengaluru |\n| Daniel Osei | Chief Revenue Officer | Sales | Austin |\n| Lena Hoffmann | VP Customer Success | Customer Success | Berlin |\n| Rahul Deshpande | VP Data & AI | Data & AI | Bengaluru |\n| Sarah Whitfield | Chief People Officer | People & Workplace | Austin |\n| Arun Kulkarni | Chief Financial Officer | Finance & Legal | Bengaluru |\n| Meera Nair | General Counsel & Data Protection Officer | Finance & Legal | Bengaluru |"
+        }
+      ],
+      "must_contain_facts": [
+        "Ananya Rao"
+      ],
+      "expected_doc_ids": [
+        "company-org-structure"
+      ],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R03",
+      "question": "Which offices does the company have?",
+      "category": "general_company",
+      "expected_route": "company",
+      "expects_retrieval": true,
+      "reference_chunks": [
+        {
+          "doc_id": "company-offices-workplace",
+          "citation": "Offices, Hybrid Working and Workplace Facilities > Office locations > Bengaluru (headquarters)",
+          "text": "- Embassy Tech Village, Devarabeesanahalli, Outer Ring Road, Bengaluru 560103.\n- Floors 4 to 7. Reception is on floor 4.\n- Access is by Okta-provisioned badge. Badge collection is on day one from the\n  Workplace desk on floor 4.\n- Building hours 07:00 to 22:00 on weekdays; weekend access needs prior approval."
+        },
+        {
+          "doc_id": "company-offices-workplace",
+          "citation": "Offices, Hybrid Working and Workplace Facilities > Office locations > Austin (Americas)",
+          "text": "- 4th Street, Downtown Austin, Texas.\n- Two floors, shared reception with the building.\n- Serves the Americas commercial team and part of People & Workplace."
+        },
+        {
+          "doc_id": "company-offices-workplace",
+          "citation": "Offices, Hybrid Working and Workplace Facilities > Office locations > Berlin (EMEA)",
+          "text": "- Prenzlauer Berg, Berlin.\n- One floor. Serves EMEA Customer Success and Sales.\n\nEmployees in countries without an office work remotely, with a co-working\nallowance described in the expense policy."
+        }
+      ],
+      "must_contain_facts": [
+        "Bengaluru"
+      ],
+      "expected_doc_ids": [
+        "company-offices-workplace"
+      ],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R04",
+      "question": "What does AR stand for in a meeting invite here?",
+      "category": "general_company",
+      "expected_route": "company",
+      "expects_retrieval": true,
+      "reference_chunks": [
+        {
+          "doc_id": "company-org-structure",
+          "citation": "Organisation Structure and Leadership > Naming conventions you will hear",
+          "text": "- **\"The Council\"** almost always means Product Council.\n- **\"AR\"** in a calendar invite is Architecture Review, not accounts receivable.\n- **\"Founders' Review\"** is a monthly session where any pod can bring a hard\n  trade-off directly to Ananya and Vikram."
+        }
+      ],
+      "must_contain_facts": [
+        "Architecture Review"
+      ],
+      "expected_doc_ids": [
+        "company-org-structure"
+      ],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R05",
+      "question": "Which customers are we allowed to name publicly?",
+      "category": "general_company",
+      "expected_route": "company",
+      "expects_retrieval": true,
+      "reference_chunks": [
+        {
+          "doc_id": "company-products-customers",
+          "citation": "Products, Customers and Market > Reference customers",
+          "text": "These accounts have signed public reference agreements and may be named in\nexternal conversations:\n\n- **Vantage Freight** - logistics, uses Core and Signals across 14 depots.\n- **Meridian Retail Group** - 600-store retailer, replaced a nightly\n  spreadsheet process with Core.\n- **Halcyon Health** - healthcare operations, uses Signals for capacity alerts.\n- **Brightloom Software** - ships Manna's Embed to 8,000 of its own customers.\n\nAny other customer name is confidential. Do not use unapproved logos or names in\nexternal decks; check with Product Marketing first."
+        }
+      ],
+      "must_contain_facts": [],
+      "expected_doc_ids": [
+        "company-products-customers"
+      ],
+      "must_contain_any": [
+        "Vantage Freight",
+        "Meridian Retail Group",
+        "Halcyon Health",
+        "Brightloom Software"
+      ],
+      "notes": "Four accounts are public references. Naming any of them is a correct answer; requiring one specific name would be arbitrary."
+    },
+    {
+      "id": "R06",
+      "question": "What technology stack does the engineering team use?",
+      "category": "role_specific",
+      "expected_route": "role",
+      "expects_retrieval": true,
+      "reference_chunks": [
+        {
+          "doc_id": "role-engineering",
+          "citation": "Engineering - Team Charter and Role Guide > Technology stack",
+          "text": "| Layer | Technology |\n| --- | --- |\n| Backend services | Python 3.12 (FastAPI), Go for latency-critical paths |\n| Query and compute | Rust for the metric compiler, DuckDB for local evaluation |\n| Frontend | TypeScript, React, Vite |\n| Data warehouses supported | Snowflake, BigQuery, Databricks, Redshift, Postgres |\n| Streaming | Kafka |\n| Orchestration | Temporal for workflows, Airflow for legacy batch |\n| Infrastructure | AWS (primary, `ap-south-1` and `us-east-1`), Kubernetes (EKS) |\n| IaC | Terraform |\n| CI/CD | GitHub Actions, Argo CD for deploys |\n| Observability | OpenTelemetry, Prometheus, Grafana, Loki |\n| Source control | GitHub Enterprise |"
+        }
+      ],
+      "must_contain_facts": [
+        "Python"
+      ],
+      "expected_doc_ids": [
+        "role-engineering"
+      ],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R07",
+      "question": "When do new engineers join the on-call rotation?",
+      "category": "role_specific",
+      "expected_route": "role",
+      "expects_retrieval": true,
+      "reference_chunks": [
+        {
+          "doc_id": "role-engineering",
+          "citation": "Engineering - Team Charter and Role Guide > On-call",
+          "text": "- Every group runs a weekly rotation, one primary and one secondary.\n- New engineers join the rotation **after** their first 90 days and only after\n  shadowing two full rotations.\n- Severity definitions and the RCA process are documented in the Platform\n  runbooks. A Sev-1 or Sev-2 requires a written RCA within five working days.\n- On-call compensation: a weekly on-call allowance plus time-off-in-lieu for any\n  night-time page, claimed through the leave system as \"On-call TOIL\"."
+        }
+      ],
+      "must_contain_facts": [
+        "90 days"
+      ],
+      "expected_doc_ids": [
+        "role-engineering"
+      ],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R08",
+      "question": "What are the performance rating levels?",
+      "category": "role_specific",
+      "expected_route": "role",
+      "expects_retrieval": true,
+      "reference_chunks": [
+        {
+          "doc_id": "role-career-framework",
+          "citation": "Career Framework, Grades and Performance > Rating scale",
+          "text": "| Rating | Meaning |\n| --- | --- |\n| Exceptional | Consistently operating a full grade above expectations |\n| Exceeds | Delivered clearly beyond the expectations of the grade |\n| Meets | Delivered what the grade expects; this is a good, healthy rating |\n| Developing | Below expectation in some areas; a written development plan follows |\n| Not meeting | Sustained shortfall; a formal performance improvement plan follows |\n\nRoughly two thirds of employees land on **Meets** in a normal cycle. \"Meets\" is\nnot a warning sign, and managers are coached to say so explicitly."
+        }
+      ],
+      "must_contain_facts": [
+        "Meets"
+      ],
+      "expected_doc_ids": [
+        "role-career-framework"
+      ],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R09",
+      "question": "What does a Solutions Engineer do?",
+      "category": "role_specific",
+      "expected_route": "role",
+      "expects_retrieval": true,
+      "reference_chunks": [
+        {
+          "doc_id": "role-sales-cs",
+          "citation": "Sales and Customer Success - Team Charter and Role Guide > Sales roles > Solutions Engineer (SE)",
+          "text": "The technical voice in the deal. Runs discovery, demos, security questionnaires\nand proof-of-concept engagements. SEs are not carrying quota individually; they\nshare the AE's number."
+        }
+      ],
+      "must_contain_facts": [
+        "demo"
+      ],
+      "expected_doc_ids": [
+        "role-sales-cs"
+      ],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R10",
+      "question": "How long is typical time in grade before a promotion?",
+      "category": "role_specific",
+      "expected_route": "role",
+      "expects_retrieval": true,
+      "reference_chunks": [
+        {
+          "doc_id": "role-career-framework",
+          "citation": "Career Framework, Grades and Performance > Promotion",
+          "text": "Promotion is a recognition that you are **already** operating at the next grade\nconsistently, not a reward for tenure or a bet on potential.\n\n- Nominated by your functional manager, evidenced by a written case with examples.\n- Calibrated across the function so the bar is consistent between managers.\n- L6 and above additionally reviewed by the function's executive sponsor.\n- Typical time in grade before promotion: 18 to 30 months at L3-L5, longer above."
+        }
+      ],
+      "must_contain_facts": [
+        "18 to 30 months"
+      ],
+      "expected_doc_ids": [
+        "role-career-framework"
+      ],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R11",
+      "question": "How many days of privilege leave do I get each year?",
+      "category": "administrative",
+      "expected_route": "admin",
+      "expects_retrieval": true,
+      "reference_chunks": [
+        {
+          "doc_id": "admin-leave-policy",
+          "citation": "Leave and Time Off Policy > Entitlements at a glance (India)",
+          "text": "| Leave type | Entitlement per leave year | Carry-forward |\n| --- | --- | --- |\n| Privilege (annual) leave | 22 working days | Up to 10 days |\n| Casual / sick leave | 12 days | None |\n| Public holidays | 12 days (10 fixed + 2 floating) | None |\n| Maternity leave | 26 weeks paid | Not applicable |\n| Paternity / secondary carer leave | 4 weeks paid | Not applicable |\n| Adoption / surrogacy leave | 12 weeks paid primary carer | Not applicable |\n| Bereavement leave | 5 days per instance | Not applicable |\n| Marriage leave | 5 days, once during employment | Not applicable |\n| Compassionate / carer leave | 5 days | None |\n| Unpaid leave (LOP) | Case by case | Not applicable |\n\nEmployees in the USA and Germany follow local schedules published on the People\n& Workplace page; entitlements there are at least equal to statutory minimums and\nthe parental provisions are matched globally."
+        }
+      ],
+      "must_contain_facts": [
+        "22"
+      ],
+      "expected_doc_ids": [
+        "admin-leave-policy"
+      ],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R12",
+      "question": "What is the nightly hotel cap for a work trip to Mumbai?",
+      "category": "administrative",
+      "expected_route": "admin",
+      "expects_retrieval": true,
+      "reference_chunks": [
+        {
+          "doc_id": "admin-expense-policy",
+          "citation": "Expense and Reimbursement Policy > Travel > Accommodation",
+          "text": "Nightly caps, excluding taxes:\n\n| Location | Cap per night |\n| --- | --- |\n| Bengaluru, Hyderabad, Pune, Chennai | INR 7,500 |\n| Mumbai, Delhi NCR | INR 9,000 |\n| Other India | INR 6,000 |\n| USA, UK, Western Europe, Singapore, Japan, Australia | USD 250 |\n| Rest of world | USD 180 |\n\nExceeding a cap because of a conference venue or a customer-arranged hotel is\nacceptable with prior manager approval noted on the claim."
+        }
+      ],
+      "must_contain_facts": [
+        "9,000"
+      ],
+      "expected_doc_ids": [
+        "admin-expense-policy"
+      ],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R13",
+      "question": "What is the per kilometre mileage rate in India?",
+      "category": "administrative",
+      "expected_route": "admin",
+      "expects_retrieval": true,
+      "reference_chunks": [
+        {
+          "doc_id": "admin-expense-policy",
+          "citation": "Expense and Reimbursement Policy > Travel > Ground transport",
+          "text": "- Economy ride-hailing or metered taxi for city travel; premium tiers are not\n  reimbursable except late at night or with luggage.\n- Rail travel: AC 2-tier or equivalent; first class for journeys over 8 hours.\n- Personal car mileage: **INR 14 per kilometre** in India, **USD 0.62 per mile**\n  in the USA. Log start and end points.\n- Airport parking reimbursable up to 7 days."
+        }
+      ],
+      "must_contain_facts": [
+        "14"
+      ],
+      "expected_doc_ids": [
+        "admin-expense-policy"
+      ],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R14",
+      "question": "I clicked a phishing link. What should I do?",
+      "category": "administrative",
+      "expected_route": "admin",
+      "expects_retrieval": true,
+      "reference_chunks": [
+        {
+          "doc_id": "admin-compliance-infosec",
+          "citation": "Compliance and Information Security Policy > 7. Phishing and social engineering",
+          "text": "- Report suspected phishing with the **Report Phish** button in your mail client.\n  Do not forward it to colleagues.\n- Manna's runs unannounced simulated phishing campaigns. Clicking a simulation\n  results in a short training module, not disciplinary action.\n- Verify any unusual request about payments, credentials or urgency **out of band**\n  through a known channel. Executive-impersonation fraud is the most common attack\n  we see. No genuine Manna's process ever asks you to bypass a control because\n  something is urgent."
+        },
+        {
+          "doc_id": "admin-compliance-infosec",
+          "citation": "Compliance and Information Security Policy > 8. Incident reporting",
+          "text": "**Report immediately, and always within 1 hour of noticing, even if you are not\nsure it is real:**\n\n- Post in `#security-incidents` **and** email `security@mannasanalytics.example`.\n- For a lost or stolen device, also call the 24x7 InfoSec line listed in the IT\n  Handbook so the device can be remotely wiped.\n\nReport: lost or stolen devices, suspected malware, an email you clicked and then\ndoubted, data sent to the wrong recipient, an exposed credential, unexpected\naccess you seem to have, or a customer telling you they can see data that is not\ntheirs.\n\n**You will never be penalised for reporting an incident you caused.** Delay causes\nfar more damage than the original mistake, and our regulatory notification clocks\nstart when Manna's becomes aware.\n\nSeverity and escalation, including the 72-hour regulatory notification assessment\nunder GDPR, are handled by the InfoSec on-call and Privacy Counsel."
+        }
+      ],
+      "must_contain_facts": [
+        "Report Phish"
+      ],
+      "expected_doc_ids": [
+        "admin-compliance-infosec"
+      ],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R15",
+      "question": "How do I report harassment without telling my manager?",
+      "category": "administrative",
+      "expected_route": "admin",
+      "expects_retrieval": true,
+      "reference_chunks": [
+        {
+          "doc_id": "admin-code-of-conduct",
+          "citation": "Code of Conduct > 9. Speak up",
+          "text": "If something looks wrong, raise it. You will not be penalised for raising a\nconcern in good faith, even if it turns out to be unfounded.\n\n| Route | Use for |\n| --- | --- |\n| Your manager | Most day-to-day concerns |\n| Your People Partner | Interpersonal issues, conduct concerns |\n| Internal Committee (`ic-committee@mannasanalytics.example`) | Sexual harassment |\n| `#security-incidents` and `security@mannasanalytics.example` | Security and data incidents |\n| Legal (`#ask-legal`) | Bribery, conflicts, competition law, insider information |\n| Ethics Line (`ethics.mannasanalytics.example`) | Anything, anonymously, 24x7, run by an independent third party |\n\nThe Ethics Line is available in English, Hindi, Kannada and German and does not\ncapture identifying metadata. Reports go to the General Counsel and, where the\nreport concerns the General Counsel or an exec team member, directly to the Audit\nCommittee of the board."
+        },
+        {
+          "doc_id": "admin-code-of-conduct",
+          "citation": "Code of Conduct > 1. Treat people well > India-specific: prevention of sexual harassment",
+          "text": "Manna's complies with the Sexual Harassment of Women at Workplace (Prevention,\nProhibition and Redressal) Act, 2013. An **Internal Committee (IC)** is\nconstituted with an external member. Complaints may be made directly to the IC at\n`ic-committee@mannasanalytics.example`, bypassing any manager. The IC acknowledges\nwithin 3 working days and completes inquiry within 90 days."
+        }
+      ],
+      "must_contain_facts": [
+        "Internal Committee"
+      ],
+      "expected_doc_ids": [
+        "admin-code-of-conduct"
+      ],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R16",
+      "question": "Can you explain what retrieval augmented generation means?",
+      "category": "direct_llm",
+      "expected_route": "general",
+      "expects_retrieval": false,
+      "reference_chunks": [],
+      "must_contain_facts": [],
+      "expected_doc_ids": [],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R17",
+      "question": "What is the difference between a list and a tuple in Python?",
+      "category": "direct_llm",
+      "expected_route": "general",
+      "expects_retrieval": false,
+      "reference_chunks": [],
+      "must_contain_facts": [],
+      "expected_doc_ids": [],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R18",
+      "question": "Who are you and what can you help me with?",
+      "category": "direct_llm",
+      "expected_route": "general",
+      "expects_retrieval": false,
+      "reference_chunks": [],
+      "must_contain_facts": [],
+      "expected_doc_ids": [],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R19",
+      "question": "What is the weather in Bengaluru right now?",
+      "category": "direct_llm",
+      "expected_route": "general",
+      "expects_retrieval": false,
+      "reference_chunks": [],
+      "must_contain_facts": [],
+      "expected_doc_ids": [],
+      "must_contain_any": [],
+      "notes": ""
+    },
+    {
+      "id": "R20",
+      "question": "Any tips for making a good first impression in a new job?",
+      "category": "direct_llm",
+      "expected_route": "general",
+      "expects_retrieval": false,
+      "reference_chunks": [],
+      "must_contain_facts": [],
+      "expected_doc_ids": [],
+      "must_contain_any": [],
+      "notes": ""
+    }
+  ],
+  "hallucination_probes": [
+    {
+      "id": "H01",
+      "question": "What is the cycle-to-work scheme allowance?",
+      "plausible_route": "admin",
+      "expected_behaviour": "decline_or_omit",
+      "forbidden_claims": [
+        "cycle-to-work",
+        "bicycle allowance"
+      ],
+      "rationale": "No cycle-to-work scheme exists in the corpus. The wellness section explicitly excludes bicycles."
+    },
+    {
+      "id": "H02",
+      "question": "How much is the annual profit-share bonus?",
+      "plausible_route": "admin",
+      "expected_behaviour": "decline_or_omit",
+      "forbidden_claims": [
+        "profit-share",
+        "profit share"
+      ],
+      "rationale": "The corpus documents a performance bonus and sales variable. No profit-share scheme exists."
+    },
+    {
+      "id": "H03",
+      "question": "What is the company policy on pet insurance?",
+      "plausible_route": "admin",
+      "expected_behaviour": "decline_or_omit",
+      "forbidden_claims": [
+        "pet insurance"
+      ],
+      "rationale": "No pet insurance benefit exists in the corpus."
+    },
+    {
+      "id": "H04",
+      "question": "Who is the Chief Marketing Officer?",
+      "plausible_route": "company",
+      "expected_behaviour": "decline_or_omit",
+      "forbidden_claims": [
+        "Chief Marketing Officer",
+        "CMO"
+      ],
+      "rationale": "The executive team has no CMO. Inventing a name would be a fabricated entity."
+    },
+    {
+      "id": "H05",
+      "question": "How many weeks of sabbatical can I take after two years of service?",
+      "plausible_route": "admin",
+      "expected_behaviour": "decline_or_omit",
+      "forbidden_claims": [
+        "after 2 years",
+        "after two years"
+      ],
+      "rationale": "Sabbatical requires 4 years of continuous service. A 2-year answer would be a wrong-figure hallucination."
+    },
+    {
+      "id": "H06",
+      "question": "What is the hotel cap for a work trip to Reykjavik?",
+      "plausible_route": "admin",
+      "expected_behaviour": "decline_or_omit",
+      "forbidden_claims": [],
+      "rationale": "Iceland is not named. The correct answer is the 'Rest of world' cap of USD 180, not an invented Iceland-specific figure."
+    }
+  ]
+}

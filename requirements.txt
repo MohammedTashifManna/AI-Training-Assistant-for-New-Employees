@@ -1,0 +1,21 @@
+# AI Training Assistant for New Employees
+# Pinned to the versions this project was built and verified against.
+
+# --- Agent orchestration (Google Agent Development Kit) ---
+google-adk==2.9.1
+google-genai==2.24.0
+
+# --- Retrieval / vector math ---
+numpy==2.5.3
+
+# --- Chatbot UI ---
+streamlit==1.64.0
+
+# --- Presentation deck generation (deliverable) ---
+python-pptx==1.0.2
+
+# --- Config ---
+python-dotenv==1.2.3
+
+# --- Testing and evaluation (see TESTING.md) ---
+pytest==9.1.1

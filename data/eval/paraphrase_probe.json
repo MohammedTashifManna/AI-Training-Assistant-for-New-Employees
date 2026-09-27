@@ -1,0 +1,131 @@
+{
+  "description": "Held-out generalisation probe. These are casual, indirect phrasings of the kind a real new joiner would type, written to be answered by the same knowledge sources as the main set but deliberately NOT used to tune the classifier. Reported separately from the main labelled set so the headline accuracy is not mistaken for generalisation.",
+  "purpose": "The main question set was authored alongside the routing rules, so its accuracy is an upper bound. This probe is scored once, untuned, to give an honest signal.",
+  "questions": [
+    {
+      "id": "P01",
+      "question": "how much time off am i allowed in a year",
+      "expected_route": "admin"
+    },
+    {
+      "id": "P02",
+      "question": "i paid for a taxi myself, how do i get that money back",
+      "expected_route": "admin"
+    },
+    {
+      "id": "P03",
+      "question": "someone at work has been making me really uncomfortable and i don't want to tell my boss",
+      "expected_route": "admin"
+    },
+    {
+      "id": "P04",
+      "question": "when do i actually get paid each month",
+      "expected_route": "admin"
+    },
+    {
+      "id": "P05",
+      "question": "is it ok to put our customer's spreadsheet into an AI chatbot to summarise it",
+      "expected_route": "admin"
+    },
+    {
+      "id": "P06",
+      "question": "i want to add my mum to the medical cover",
+      "expected_route": "admin"
+    },
+    {
+      "id": "P07",
+      "question": "if i quit how long do i have to stick around",
+      "expected_route": "admin"
+    },
+    {
+      "id": "P08",
+      "question": "my laptop just died, who fixes it",
+      "expected_route": "admin"
+    },
+    {
+      "id": "P09",
+      "question": "what stuff do i have to finish before they let me touch production",
+      "expected_route": "admin"
+    },
+    {
+      "id": "P10",
+      "question": "who runs this place",
+      "expected_route": "company"
+    },
+    {
+      "id": "P11",
+      "question": "what exactly do we sell to people",
+      "expected_route": "company"
+    },
+    {
+      "id": "P12",
+      "question": "which city is the main office in",
+      "expected_route": "company"
+    },
+    {
+      "id": "P13",
+      "question": "everyone keeps saying NRR in meetings and i have no idea what it is",
+      "expected_route": "company"
+    },
+    {
+      "id": "P14",
+      "question": "am i allowed to tell a friend which companies use our product",
+      "expected_route": "company"
+    },
+    {
+      "id": "P15",
+      "question": "what are the things this company says it cares about",
+      "expected_route": "company"
+    },
+    {
+      "id": "P16",
+      "question": "what languages and frameworks will i be coding in",
+      "expected_route": "role"
+    },
+    {
+      "id": "P17",
+      "question": "how long until i can move up a level",
+      "expected_route": "role"
+    },
+    {
+      "id": "P18",
+      "question": "will i get woken up at night to fix things",
+      "expected_route": "role"
+    },
+    {
+      "id": "P19",
+      "question": "what is a solutions engineer actually responsible for",
+      "expected_route": "role"
+    },
+    {
+      "id": "P20",
+      "question": "how will my work be judged at the end of the year",
+      "expected_route": "role"
+    },
+    {
+      "id": "P21",
+      "question": "what should i be trying to get done in my first month here",
+      "expected_route": "role"
+    },
+    {
+      "id": "P22",
+      "question": "can you explain what a vector database is",
+      "expected_route": "general"
+    },
+    {
+      "id": "P23",
+      "question": "i'm nervous about starting, any advice",
+      "expected_route": "general"
+    },
+    {
+      "id": "P24",
+      "question": "whats the difference between a dict and a set",
+      "expected_route": "general"
+    },
+    {
+      "id": "P25",
+      "question": "hi there",
+      "expected_route": "general"
+    }
+  ]
+}

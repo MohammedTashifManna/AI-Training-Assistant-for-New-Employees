@@ -1,0 +1,732 @@
+{
+  "sample_count": 60,
+  "phases": {
+    "total": {
+      "n": 60,
+      "mean": 0.018531074997736142,
+      "p50": 0.018796800053678453,
+      "p95": 0.024081200012005866,
+      "max": 0.02795189991593361
+    },
+    "routing": {
+      "n": 60,
+      "mean": 0.010311578334464382,
+      "p50": 0.010594599996693432,
+      "p95": 0.013914000010117888,
+      "max": 0.01460699993185699
+    },
+    "retrieval": {
+      "n": 60,
+      "mean": 0.0010777799897671988,
+      "p50": 0.001094499952159822,
+      "p95": 0.0023515999782830477,
+      "max": 0.005883299978449941
+    },
+    "search": {
+      "n": 60,
+      "mean": 0.0004832666666666667,
+      "p50": 0.000425,
+      "p95": 0.000731,
+      "max": 0.004958
+    },
+    "generation": {
+      "n": 60,
+      "mean": 0.0035275566663282615,
+      "p50": 0.0033556999405846,
+      "p95": 0.005539500038139522,
+      "max": 0.008602600079029799
+    }
+  },
+  "by_route": {
+    "admin": {
+      "total": {
+        "n": 15,
+        "mean": 0.019786186687027415,
+        "p50": 0.020170000032521784,
+        "p95": 0.022577399970032275,
+        "max": 0.024081200012005866
+      },
+      "routing": {
+        "n": 15,
+        "mean": 0.010717293332951764,
+        "p50": 0.010594599996693432,
+        "p95": 0.014267600025050342,
+        "max": 0.014550899970345199
+      },
+      "retrieval": {
+        "n": 15,
+        "mean": 0.0013140799788137277,
+        "p50": 0.0011862999526783824,
+        "p95": 0.001909599988721311,
+        "max": 0.002076399978250265
+      },
+      "search": {
+        "n": 15,
+        "mean": 0.0005312,
+        "p50": 0.00049,
+        "p95": 0.000731,
+        "max": 0.000835
+      },
+      "generation": {
+        "n": 15,
+        "mean": 0.0034777733497321607,
+        "p50": 0.0033872000640258193,
+        "p95": 0.0045418000081554055,
+        "max": 0.005036900052800775
+      }
+    },
+    "company": {
+      "total": {
+        "n": 15,
+        "mean": 0.018667433325511715,
+        "p50": 0.019956299918703735,
+        "p95": 0.023068199981935322,
+        "max": 0.02591879991814494
+      },
+      "routing": {
+        "n": 15,
+        "mean": 0.009871760010719299,
+        "p50": 0.010523200035095215,
+        "p95": 0.012494300026446581,
+        "max": 0.013513500103726983
+      },
+      "retrieval": {
+        "n": 15,
+        "mean": 0.0014545733264336982,
+        "p50": 0.0011569999624043703,
+        "p95": 0.0028141000075265765,
+        "max": 0.004574200022034347
+      },
+      "search": {
+        "n": 15,
+        "mean": 0.0006179333333333332,
+        "p50": 0.000392,
+        "p95": 0.000501,
+        "max": 0.003907
+      },
+      "generation": {
+        "n": 15,
+        "mean": 0.0031905266533916194,
+        "p50": 0.0033556999405846,
+        "p95": 0.003938899957574904,
+        "max": 0.004153199959546328
+      }
+    },
+    "general": {
+      "total": {
+        "n": 15,
+        "mean": 0.015212066650080184,
+        "p50": 0.015693299937993288,
+        "p95": 0.019482599920593202,
+        "max": 0.019676299998536706
+      },
+      "routing": {
+        "n": 15,
+        "mean": 0.009946786666599412,
+        "p50": 0.010640099993906915,
+        "p95": 0.011669599916785955,
+        "max": 0.011987400008365512
+      },
+      "retrieval": {
+        "n": 15,
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "search": {
+        "n": 15,
+        "mean": 0.0,
+        "p50": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      },
+      "generation": {
+        "n": 15,
+        "mean": 0.003981566669729849,
+        "p50": 0.0031658000079914927,
+        "p95": 0.006632399978116155,
+        "max": 0.008602600079029799
+      }
+    },
+    "role": {
+      "total": {
+        "n": 15,
+        "mean": 0.020458613328325253,
+        "p50": 0.0193853999953717,
+        "p95": 0.0249045001110062,
+        "max": 0.02795189991593361
+      },
+      "routing": {
+        "n": 15,
+        "mean": 0.010710473327587048,
+        "p50": 0.010559799964539707,
+        "p95": 0.013914000010117888,
+        "max": 0.01460699993185699
+      },
+      "retrieval": {
+        "n": 15,
+        "mean": 0.001542466653821369,
+        "p50": 0.0011983999283984303,
+        "p95": 0.0018981999019160867,
+        "max": 0.005883299978449941
+      },
+      "search": {
+        "n": 15,
+        "mean": 0.0007839333333333334,
+        "p50": 0.000456,
+        "p95": 0.000723,
+        "max": 0.004958
+      },
+      "generation": {
+        "n": 15,
+        "mean": 0.0034603599924594164,
+        "p50": 0.0032181000569835305,
+        "p95": 0.0041880999924615026,
+        "max": 0.005285499966703355
+      }
+    }
+  },
+  "samples": [
+    {
+      "question_id": "R01",
+      "route": "company",
+      "total": 0.01623,
+      "routing": 0.006643,
+      "retrieval": 0.004574,
+      "search": 0.003907,
+      "generation": 0.002934
+    },
+    {
+      "question_id": "R02",
+      "route": "company",
+      "total": 0.01171,
+      "routing": 0.004547,
+      "retrieval": 0.00102,
+      "search": 0.00027,
+      "generation": 0.004153
+    },
+    {
+      "question_id": "R03",
+      "route": "company",
+      "total": 0.009008,
+      "routing": 0.004419,
+      "retrieval": 0.000548,
+      "search": 0.000255,
+      "generation": 0.001494
+    },
+    {
+      "question_id": "R04",
+      "route": "company",
+      "total": 0.016504,
+      "routing": 0.011449,
+      "retrieval": 0.000577,
+      "search": 0.000248,
+      "generation": 0.001461
+    },
+    {
+      "question_id": "R05",
+      "route": "company",
+      "total": 0.025919,
+      "routing": 0.013514,
+      "retrieval": 0.001171,
+      "search": 0.000392,
+      "generation": 0.003356
+    },
+    {
+      "question_id": "R06",
+      "route": "role",
+      "total": 0.027952,
+      "routing": 0.012113,
+      "retrieval": 0.005883,
+      "search": 0.004958,
+      "generation": 0.005285
+    },
+    {
+      "question_id": "R07",
+      "route": "role",
+      "total": 0.016229,
+      "routing": 0.008064,
+      "retrieval": 0.001072,
+      "search": 0.000465,
+      "generation": 0.002722
+    },
+    {
+      "question_id": "R08",
+      "route": "role",
+      "total": 0.017953,
+      "routing": 0.009117,
+      "retrieval": 0.001316,
+      "search": 0.000498,
+      "generation": 0.002889
+    },
+    {
+      "question_id": "R09",
+      "route": "role",
+      "total": 0.016767,
+      "routing": 0.007073,
+      "retrieval": 0.001898,
+      "search": 0.000693,
+      "generation": 0.002943
+    },
+    {
+      "question_id": "R10",
+      "route": "role",
+      "total": 0.023426,
+      "routing": 0.013914,
+      "retrieval": 0.001176,
+      "search": 0.000435,
+      "generation": 0.003503
+    },
+    {
+      "question_id": "R11",
+      "route": "admin",
+      "total": 0.015485,
+      "routing": 0.008106,
+      "retrieval": 0.001148,
+      "search": 0.000483,
+      "generation": 0.002661
+    },
+    {
+      "question_id": "R12",
+      "route": "admin",
+      "total": 0.016726,
+      "routing": 0.008745,
+      "retrieval": 0.001236,
+      "search": 0.000538,
+      "generation": 0.0031
+    },
+    {
+      "question_id": "R13",
+      "route": "admin",
+      "total": 0.016511,
+      "routing": 0.008804,
+      "retrieval": 0.001033,
+      "search": 0.000424,
+      "generation": 0.003396
+    },
+    {
+      "question_id": "R14",
+      "route": "admin",
+      "total": 0.021195,
+      "routing": 0.014551,
+      "retrieval": 0.001086,
+      "search": 0.000479,
+      "generation": 0.001805
+    },
+    {
+      "question_id": "R15",
+      "route": "admin",
+      "total": 0.019712,
+      "routing": 0.009225,
+      "retrieval": 0.00191,
+      "search": 0.000539,
+      "generation": 0.003519
+    },
+    {
+      "question_id": "R16",
+      "route": "general",
+      "total": 0.009718,
+      "routing": 0.00586,
+      "retrieval": 0.0,
+      "search": 0.0,
+      "generation": 0.002642
+    },
+    {
+      "question_id": "R17",
+      "route": "general",
+      "total": 0.009451,
+      "routing": 0.005797,
+      "retrieval": 0.0,
+      "search": 0.0,
+      "generation": 0.002472
+    },
+    {
+      "question_id": "R18",
+      "route": "general",
+      "total": 0.019166,
+      "routing": 0.011987,
+      "retrieval": 0.0,
+      "search": 0.0,
+      "generation": 0.00554
+    },
+    {
+      "question_id": "R19",
+      "route": "general",
+      "total": 0.015606,
+      "routing": 0.011331,
+      "retrieval": 0.0,
+      "search": 0.0,
+      "generation": 0.003166
+    },
+    {
+      "question_id": "R20",
+      "route": "general",
+      "total": 0.014274,
+      "routing": 0.01044,
+      "retrieval": 0.0,
+      "search": 0.0,
+      "generation": 0.002721
+    },
+    {
+      "question_id": "R01",
+      "route": "company",
+      "total": 0.021913,
+      "routing": 0.012207,
+      "retrieval": 0.00141,
+      "search": 0.000495,
+      "generation": 0.003318
+    },
+    {
+      "question_id": "R02",
+      "route": "company",
+      "total": 0.021695,
+      "routing": 0.012019,
+      "retrieval": 0.002352,
+      "search": 0.000366,
+      "generation": 0.002924
+    },
+    {
+      "question_id": "R03",
+      "route": "company",
+      "total": 0.019956,
+      "routing": 0.010523,
+      "retrieval": 0.00115,
+      "search": 0.000493,
+      "generation": 0.00383
+    },
+    {
+      "question_id": "R04",
+      "route": "company",
+      "total": 0.015504,
+      "routing": 0.008529,
+      "retrieval": 0.000657,
+      "search": 0.000281,
+      "generation": 0.003459
+    },
+    {
+      "question_id": "R05",
+      "route": "company",
+      "total": 0.018133,
+      "routing": 0.009893,
+      "retrieval": 0.00129,
+      "search": 0.000434,
+      "generation": 0.002975
+    },
+    {
+      "question_id": "R06",
+      "route": "role",
+      "total": 0.021002,
+      "routing": 0.012154,
+      "retrieval": 0.001038,
+      "search": 0.000425,
+      "generation": 0.003895
+    },
+    {
+      "question_id": "R07",
+      "route": "role",
+      "total": 0.019299,
+      "routing": 0.00969,
+      "retrieval": 0.001124,
+      "search": 0.000456,
+      "generation": 0.002937
+    },
+    {
+      "question_id": "R08",
+      "route": "role",
+      "total": 0.018544,
+      "routing": 0.009763,
+      "retrieval": 0.001048,
+      "search": 0.000397,
+      "generation": 0.0032
+    },
+    {
+      "question_id": "R09",
+      "route": "role",
+      "total": 0.018418,
+      "routing": 0.008941,
+      "retrieval": 0.001382,
+      "search": 0.000583,
+      "generation": 0.003218
+    },
+    {
+      "question_id": "R10",
+      "route": "role",
+      "total": 0.024905,
+      "routing": 0.014607,
+      "retrieval": 0.001467,
+      "search": 0.000723,
+      "generation": 0.004036
+    },
+    {
+      "question_id": "R11",
+      "route": "admin",
+      "total": 0.016984,
+      "routing": 0.009614,
+      "retrieval": 0.001186,
+      "search": 0.000544,
+      "generation": 0.003114
+    },
+    {
+      "question_id": "R12",
+      "route": "admin",
+      "total": 0.022577,
+      "routing": 0.010892,
+      "retrieval": 0.001905,
+      "search": 0.000835,
+      "generation": 0.004542
+    },
+    {
+      "question_id": "R13",
+      "route": "admin",
+      "total": 0.018797,
+      "routing": 0.010873,
+      "retrieval": 0.001011,
+      "search": 0.000453,
+      "generation": 0.002838
+    },
+    {
+      "question_id": "R14",
+      "route": "admin",
+      "total": 0.021149,
+      "routing": 0.011761,
+      "retrieval": 0.001207,
+      "search": 0.000417,
+      "generation": 0.003593
+    },
+    {
+      "question_id": "R15",
+      "route": "admin",
+      "total": 0.022229,
+      "routing": 0.012376,
+      "retrieval": 0.001195,
+      "search": 0.00049,
+      "generation": 0.004316
+    },
+    {
+      "question_id": "R16",
+      "route": "general",
+      "total": 0.014624,
+      "routing": 0.01002,
+      "retrieval": 0.0,
+      "search": 0.0,
+      "generation": 0.003216
+    },
+    {
+      "question_id": "R17",
+      "route": "general",
+      "total": 0.016738,
+      "routing": 0.011024,
+      "retrieval": 0.0,
+      "search": 0.0,
+      "generation": 0.003915
+    },
+    {
+      "question_id": "R18",
+      "route": "general",
+      "total": 0.018618,
+      "routing": 0.01064,
+      "retrieval": 0.0,
+      "search": 0.0,
+      "generation": 0.006521
+    },
+    {
+      "question_id": "R19",
+      "route": "general",
+      "total": 0.009313,
+      "routing": 0.005932,
+      "retrieval": 0.0,
+      "search": 0.0,
+      "generation": 0.002346
+    },
+    {
+      "question_id": "R20",
+      "route": "general",
+      "total": 0.015984,
+      "routing": 0.01167,
+      "retrieval": 0.0,
+      "search": 0.0,
+      "generation": 0.002841
+    },
+    {
+      "question_id": "R01",
+      "route": "company",
+      "total": 0.023068,
+      "routing": 0.012494,
+      "retrieval": 0.001275,
+      "search": 0.000501,
+      "generation": 0.003888
+    },
+    {
+      "question_id": "R02",
+      "route": "company",
+      "total": 0.021665,
+      "routing": 0.009335,
+      "retrieval": 0.002814,
+      "search": 0.000414,
+      "generation": 0.003939
+    },
+    {
+      "question_id": "R03",
+      "route": "company",
+      "total": 0.017113,
+      "routing": 0.009827,
+      "retrieval": 0.000931,
+      "search": 0.000387,
+      "generation": 0.00268
+    },
+    {
+      "question_id": "R04",
+      "route": "company",
+      "total": 0.020209,
+      "routing": 0.011641,
+      "retrieval": 0.000894,
+      "search": 0.000364,
+      "generation": 0.00352
+    },
+    {
+      "question_id": "R05",
+      "route": "company",
+      "total": 0.021385,
+      "routing": 0.011036,
+      "retrieval": 0.001157,
+      "search": 0.000462,
+      "generation": 0.003926
+    },
+    {
+      "question_id": "R06",
+      "route": "role",
+      "total": 0.021482,
+      "routing": 0.010788,
+      "retrieval": 0.001403,
+      "search": 0.000556,
+      "generation": 0.004188
+    },
+    {
+      "question_id": "R07",
+      "route": "role",
+      "total": 0.022598,
+      "routing": 0.010995,
+      "retrieval": 0.001297,
+      "search": 0.000369,
+      "generation": 0.003924
+    },
+    {
+      "question_id": "R08",
+      "route": "role",
+      "total": 0.019385,
+      "routing": 0.01056,
+      "retrieval": 0.000864,
+      "search": 0.000345,
+      "generation": 0.003564
+    },
+    {
+      "question_id": "R09",
+      "route": "role",
+      "total": 0.01663,
+      "routing": 0.009042,
+      "retrieval": 0.001198,
+      "search": 0.000453,
+      "generation": 0.00272
+    },
+    {
+      "question_id": "R10",
+      "route": "role",
+      "total": 0.02229,
+      "routing": 0.013836,
+      "retrieval": 0.00097,
+      "search": 0.000403,
+      "generation": 0.00288
+    },
+    {
+      "question_id": "R11",
+      "route": "admin",
+      "total": 0.021076,
+      "routing": 0.010394,
+      "retrieval": 0.001077,
+      "search": 0.000436,
+      "generation": 0.003387
+    },
+    {
+      "question_id": "R12",
+      "route": "admin",
+      "total": 0.021404,
+      "routing": 0.012266,
+      "retrieval": 0.001372,
+      "search": 0.000591,
+      "generation": 0.00338
+    },
+    {
+      "question_id": "R13",
+      "route": "admin",
+      "total": 0.02017,
+      "routing": 0.008291,
+      "retrieval": 0.002076,
+      "search": 0.000731,
+      "generation": 0.005037
+    },
+    {
+      "question_id": "R14",
+      "route": "admin",
+      "total": 0.024081,
+      "routing": 0.014268,
+      "retrieval": 0.001094,
+      "search": 0.000455,
+      "generation": 0.004271
+    },
+    {
+      "question_id": "R15",
+      "route": "admin",
+      "total": 0.018697,
+      "routing": 0.010595,
+      "retrieval": 0.001174,
+      "search": 0.000553,
+      "generation": 0.003207
+    },
+    {
+      "question_id": "R16",
+      "route": "general",
+      "total": 0.019483,
+      "routing": 0.011482,
+      "retrieval": 0.0,
+      "search": 0.0,
+      "generation": 0.006632
+    },
+    {
+      "question_id": "R17",
+      "route": "general",
+      "total": 0.013288,
+      "routing": 0.010214,
+      "retrieval": 0.0,
+      "search": 0.0,
+      "generation": 0.002154
+    },
+    {
+      "question_id": "R18",
+      "route": "general",
+      "total": 0.019676,
+      "routing": 0.00992,
+      "retrieval": 0.0,
+      "search": 0.0,
+      "generation": 0.008603
+    },
+    {
+      "question_id": "R19",
+      "route": "general",
+      "total": 0.016549,
+      "routing": 0.011389,
+      "retrieval": 0.0,
+      "search": 0.0,
+      "generation": 0.004014
+    },
+    {
+      "question_id": "R20",
+      "route": "general",
+      "total": 0.015693,
+      "routing": 0.011495,
+      "retrieval": 0.0,
+      "search": 0.0,
+      "generation": 0.002942
+    }
+  ]
+}
